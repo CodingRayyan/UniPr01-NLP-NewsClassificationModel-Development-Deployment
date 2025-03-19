@@ -11,20 +11,28 @@ with open("newsclassifier_model.pkl", "rb") as model_file:
 with open("tfidf_vec.pkl", "rb") as tfidf_file:
     tfidf = pickle.load(tfidf_file)
 
-# ✅ Correct background image code
-st.markdown(
-    """
-    <style>
-    body {
-        background-image: url("stbg.jpg");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+import base64
+
+def set_bg(image_path):
+    with open(image_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    
+    st.markdown(
+        f"""
+        <style>
+        body {{
+            background-image: url("data:image/png;base64,{encoded_string}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }}
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+set_bg("stbg.jpg")  # Call the function with your image
+
 
 st.title("📰 News Headline Classification")
 st.subheader("Categories Available: ['ENTERTAINMENT', 'TRAVEL', 'WELLNESS', 'POLITICS', 'STYLE & BEAUTY']")
