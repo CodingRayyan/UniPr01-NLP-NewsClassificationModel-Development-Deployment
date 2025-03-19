@@ -1,9 +1,0 @@
-NumPy
-Pandas
-Matplotlib
-Seaborn
-Plotly
-ScikitLearn
-Joblib
-Pickle
-Streamlit
