@@ -12,7 +12,7 @@ with open("tfidf_vec.pkl", "rb") as tfidf_file:
     tfidf = pickle.load(tfidf_file)
 
 st.title("📰 News Headline Classification\nCategories Available: ['ENTERTAINMENT', 'TRAVEL', 'WELLNESS', 'POLITICS', 'STYLE & BEAUTY']")
-st.write("Example: Rayyan, Wajahat and Sami wore their best suits at the event and were looking great! (Predicted Category: STYLE & BEAUTY)")
+st.write("Rayyan, Wajahat, and Sami amazed the crowd with their elegant outfits at the gala. (Predicted Category: STYLE & BEAUTY)")
 st.write("Enter a news headline and get its category prediction!")
 
 # User Input
