@@ -11,6 +11,21 @@ with open("newsclassifier_model.pkl", "rb") as model_file:
 with open("tfidf_vec.pkl", "rb") as tfidf_file:
     tfidf = pickle.load(tfidf_file)
 
+st.markdown(
+    
+    <style>
+    body {
+        background-image: url("stbg.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+    </style>
+    ,
+    unsafe_allow_html=True
+)
+
+
 st.title("📰 News Headline Classification\nCategories Available: ['ENTERTAINMENT', 'TRAVEL', 'WELLNESS', 'POLITICS', 'STYLE & BEAUTY']")
 st.write("Rayyan, Wajahat, and Sami amazed the crowd with their elegant outfits at the gala. (Predicted Category: STYLE & BEAUTY)")
 st.write("Enter a news headline and get its category prediction!")
