@@ -3,6 +3,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 import streamlit as st
 import pickle
+import base64
 
 # Load the model and TF-IDF vectorizer
 with open("newsclassifier_model.pkl", "rb") as model_file:
@@ -11,8 +12,7 @@ with open("newsclassifier_model.pkl", "rb") as model_file:
 with open("tfidf_vec.pkl", "rb") as tfidf_file:
     tfidf = pickle.load(tfidf_file)
 
-import base64
-
+# ✅ Corrected Background Image Code for Streamlit
 def set_bg(image_path):
     with open(image_path, "rb") as image_file:
         encoded_string = base64.b64encode(image_file.read()).decode()
@@ -20,7 +20,7 @@ def set_bg(image_path):
     st.markdown(
         f"""
         <style>
-        body {{
+        .stApp {{
             background-image: url("data:image/png;base64,{encoded_string}");
             background-size: cover;
             background-position: center;
@@ -32,7 +32,6 @@ def set_bg(image_path):
     )
 
 set_bg("stbg.jpg")  # Call the function with your image
-
 
 st.title("📰 News Headline Classification")
 st.subheader("Categories Available: ['ENTERTAINMENT', 'TRAVEL', 'WELLNESS', 'POLITICS', 'STYLE & BEAUTY']")
